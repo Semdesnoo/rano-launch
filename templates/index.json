@@ -1,246 +1,166 @@
 {
   "sections": {
-    "hero": {
-      "type": "hero-slideshow",
+    "launch": {
+      "type": "launch-hero",
+      "settings": {
+        "product": "giallo-traveller",
+        "word": "GIALLO",
+        "glow": "#e3b73a",
+        "eyebrow": "The new Traveller",
+        "heading": "The Giallo Traveller",
+        "edition": "Edizione limitata. Made in small numbers, never restocked."
+      }
+    },
+    "spin": {
+      "type": "launch-spin",
+      "settings": {
+        "product": "giallo-traveller",
+        "glow": "#e3b73a",
+        "kicker": "Every angle, considered"
+      },
       "blocks": {
-        "film": {
-          "type": "slide",
+        "c0": {
+          "type": "chapter",
           "settings": {
-            "layout": "single",
-            "video_asset": "rano-film.mp4",
-            "fallback": "rano-film-poster.jpg",
-            "heading": "Designed in Italy. Carried everywhere.",
-            "text": "Genuine leather travel pieces, made in small numbers.",
-            "button_label": "Discover the collection",
-            "button_link": "shopify://collections/all"
+            "italian": "Il pellame",
+            "title": "Full-grain leather",
+            "text": "Chosen hide by hide for its grain and weight. It softens with every trip and takes on your story.",
+            "orbit": "-18 80 105"
           }
         },
-        "trio": {
-          "type": "slide",
+        "c1": {
+          "type": "chapter",
           "settings": {
-            "layout": "trio",
-            "fallback": "model-giallo.jpg",
-            "fallback_2": "model-rosa.jpg",
-            "fallback_3": "model-blue.jpg",
-            "heading": "One silhouette. Three colours.",
-            "text": "Giallo, Rosa and Blue Mare. Pick yours.",
-            "button_label": "Discover the Traveller",
-            "button_link": "shopify://collections/rano-traveller"
+            "italian": "La forma",
+            "title": "A shape that holds",
+            "text": "Structured enough to stand on its own, soft enough to slide into an overhead cabin.",
+            "orbit": "22 64 96"
+          }
+        },
+        "c2": {
+          "type": "chapter",
+          "settings": {
+            "italian": "I dettagli",
+            "title": "Hardware you can feel",
+            "text": "Silver-tone buckles, a smooth two-way zip and a pressed Rano tag. Quiet details, built to last.",
+            "orbit": "180 74 102"
+          }
+        },
+        "c3": {
+          "type": "chapter",
+          "settings": {
+            "italian": "Il viaggio",
+            "title": "Made for the journey",
+            "text": "A detachable, adjustable strap and handles reinforced at every joint. From a weekend in Puglia to a late flight home.",
+            "orbit": "0 88 114"
           }
         }
       },
       "block_order": [
-        "film",
-        "trio"
-      ],
-      "settings": {
-        "height": "large",
-        "interval": 8
-      }
-    },
-    "bestsellers": {
-      "type": "product-tabs",
-      "blocks": {
-        "t1": {
-          "type": "tab",
-          "settings": {
-            "title": "The Traveller",
-            "collection": "rano-traveller"
-          }
-        },
-        "t2": {
-          "type": "tab",
-          "settings": {
-            "title": "Travel Pouch",
-            "collection": "rano-travel-pouch"
-          }
-        },
-        "t3": {
-          "type": "tab",
-          "settings": {
-            "title": "Card Holder",
-            "collection": "card-holder"
-          }
-        },
-        "t4": {
-          "type": "tab",
-          "settings": {
-            "title": "Everything"
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "t4"
-      ],
-      "settings": {
-        "heading": "The Icons",
-        "limit": 8,
-        "link_label": "View all",
-        "link": "shopify://collections/all"
-      }
-    },
-    "looks": {
-      "type": "shop-the-look",
-      "blocks": {
-        "l1": {
-          "type": "look",
-          "settings": {
-            "fallback": "model-giallo-2.jpg",
-            "product": "giallo-traveller"
-          }
-        },
-        "l2": {
-          "type": "look",
-          "settings": {
-            "video_asset": "look-pouch.mp4",
-            "fallback": "look-pouch.jpg",
-            "product": "rosa-travel-pouch"
-          }
-        },
-        "l3": {
-          "type": "look",
-          "settings": {
-            "fallback": "model-rosa.jpg",
-            "product": "rano-rosa-traveller"
-          }
-        },
-        "l4": {
-          "type": "look",
-          "settings": {
-            "video_asset": "look-canal.mp4",
-            "fallback": "look-canal.jpg",
-            "product": "giallo-traveller"
-          }
-        },
-        "l5": {
-          "type": "look",
-          "settings": {
-            "fallback": "model-blue.jpg",
-            "product": "blue-mare-traveller"
-          }
-        },
-        "l6": {
-          "type": "look",
-          "settings": {
-            "fallback": "life-giallo.jpg",
-            "product": "giallo-travel-pouch"
-          }
-        }
-      },
-      "block_order": [
-        "l1",
-        "l2",
-        "l3",
-        "l4",
-        "l5",
-        "l6"
-      ],
-      "settings": {
-        "heading": "Seen on the move"
-      }
-    },
-    "casarano": {
-      "type": "image-banner",
-      "settings": {
-        "fallback": "life-fiat.jpg",
-        "fallback_mobile": "life-fiat.jpg",
-        "focal": "center 45%",
-        "height": "large",
-        "heading": "Born in Casarano",
-        "text": "A small town in southern Italy, where days move slowly and details matter.",
-        "button_label": "Our story",
-        "button_link": "shopify://pages/about-us",
-        "fallback_2": "life-coast.jpg",
-        "focal_2": "center 55%"
-      }
-    },
-    "split": {
-      "type": "split-banners",
-      "blocks": {
-        "b1": {
-          "type": "banner",
-          "settings": {
-            "fallback": "life-stairs.jpg",
-            "heading": "The Traveller",
-            "text": "A spacious weekender that holds its shape.",
-            "button_label": "Discover",
-            "link": "shopify://collections/rano-traveller"
-          }
-        },
-        "b2": {
-          "type": "banner",
-          "settings": {
-            "fallback": "pouch-woman.jpg",
-            "heading": "The Travel Pouch",
-            "text": "Your essentials, organised in leather.",
-            "button_label": "Discover",
-            "link": "shopify://collections/rano-travel-pouch"
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2"
+        "c0",
+        "c1",
+        "c2",
+        "c3"
       ]
     },
-    "complete": {
-      "type": "product-row",
+    "craft": {
+      "type": "craft-steps",
       "settings": {
-        "heading": "Complete the set",
-        "link_label": "Shop all",
-        "link": "shopify://collections/all"
-      }
-    },
-    "details": {
-      "type": "craft-details",
+        "anchor": "atelier",
+        "eyebrow": "Il mestiere",
+        "heading": "From hide to heirloom"
+      },
       "blocks": {
-        "d1": {
-          "type": "item",
+        "s0": {
+          "type": "step",
           "settings": {
-            "fallback": "detail-1.jpg",
-            "title": "Genuine leather",
-            "text": "Full-grain leather, carefully selected for its natural feel. It softens and ages with character."
+            "italian": "La scelta",
+            "title": "Selecting the leather",
+            "text": "Every hide is chosen by hand for its grain, weight and the way it softens. Only full-grain leather makes the cut."
           }
         },
-        "d2": {
-          "type": "item",
+        "s1": {
+          "type": "step",
           "settings": {
-            "fallback": "detail-2.jpg",
-            "title": "Designed in Italy",
-            "text": "Shaped in Casarano, finished with intention."
+            "italian": "Il taglio",
+            "title": "Cut by hand",
+            "text": "Patterns are laid out to follow the natural grain, then cut with a blade, piece by piece, so every panel lines up."
           }
         },
-        "d3": {
-          "type": "item",
+        "s2": {
+          "type": "step",
           "settings": {
-            "fallback": "detail-3.jpg",
-            "title": "Cabin ready",
-            "text": "Sized for weekends, overnights and carry-on cabins."
+            "italian": "La cucitura",
+            "title": "Stitched to last",
+            "text": "Dense, even stitching and reinforced handle joints. A travel bag has to carry more than looks."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "italian": "La rifinitura",
+            "title": "Finished with intention",
+            "text": "Edges are smoothed and sealed, hardware checked, the Rano mark pressed in. Then it waits for its first journey."
           }
         }
       },
       "block_order": [
-        "d1",
-        "d2",
-        "d3"
-      ],
-      "settings": {
-        "heading": "Why Rano"
-      }
+        "s0",
+        "s1",
+        "s2",
+        "s3"
+      ]
     },
-    "journey": {
-      "type": "image-banner",
+    "facts": {
+      "type": "facts",
+      "blocks": {
+        "f0": {
+          "type": "fact",
+          "settings": {
+            "number": 100,
+            "suffix": "%",
+            "label": "Full-grain leather"
+          }
+        },
+        "f1": {
+          "type": "fact",
+          "settings": {
+            "number": 4,
+            "suffix": "",
+            "label": "Hands on every piece"
+          }
+        },
+        "f2": {
+          "type": "fact",
+          "settings": {
+            "number": 14,
+            "suffix": "",
+            "label": "Days to make one Traveller"
+          }
+        },
+        "f3": {
+          "type": "fact",
+          "settings": {
+            "number": 1,
+            "suffix": "",
+            "label": "Small town in Puglia"
+          }
+        }
+      },
+      "block_order": [
+        "f0",
+        "f1",
+        "f2",
+        "f3"
+      ],
+      "settings": {}
+    },
+    "reviews": {
+      "type": "trustpilot-reviews",
       "settings": {
-        "fallback": "life-coast.jpg",
-        "fallback_mobile": "life-coast.jpg",
-        "focal": "center 55%",
-        "height": "medium",
-        "full_width": true,
-        "heading": "Made for the journey",
-        "text": "Early flights, late check-ins and everything in between."
+        "layout": "grid",
+        "rating": "4.8",
+        "review_count": "0"
       }
     },
     "ugc": {
@@ -323,26 +243,14 @@
         "heading": "#ranoeurope",
         "link_label": "Follow @ranoeurope"
       }
-    },
-    "reviews": {
-      "type": "trustpilot-reviews",
-      "settings": {
-        "layout": "grid",
-        "rating": "4.8",
-        "review_count": "0"
-      }
     }
   },
   "order": [
-    "hero",
-    "bestsellers",
+    "launch",
+    "spin",
+    "craft",
+    "facts",
     "reviews",
-    "looks",
-    "casarano",
-    "split",
-    "complete",
-    "details",
-    "journey",
     "ugc"
   ]
 }

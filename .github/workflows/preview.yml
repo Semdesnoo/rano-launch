@@ -21,6 +21,6 @@ jobs:
       - name: Shopify zip -> release "latest"
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
-          git archive -o rano-europe-theme.zip HEAD assets config layout locales sections snippets templates && git archive -o rano-policies.zip HEAD policies
+          git archive -o rano-launch.zip HEAD assets config layout locales sections snippets templates && git archive -o rano-policies.zip HEAD policies
           gh release view latest >/dev/null 2>&1 || gh release create latest --title "Shopify theme (latest)" --notes "Automatisch gebouwd bij elke push naar main. Upload deze zip in Shopify: Online Store > Themes > Add theme > Upload zip."
-          gh release upload latest rano-europe-theme.zip rano-policies.zip --clobber
+          gh release upload latest rano-launch.zip rano-policies.zip --clobber

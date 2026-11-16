@@ -1,0 +1,57 @@
+{%- comment -%}
+  Scroll film: the 3D model is pinned and turns with your scroll; each chapter rotates the
+  camera to a new angle (camera orbit "theta phi radius%") while its text fades in.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign p = s.product | default: collections.all.products.first
+  assign model = p.media | where: 'media_type', 'model' | first
+  assign n = section.blocks.size
+-%}
+<section class="spin3d" style="--n: {{ n }}; --glow: {{ s.glow }}" data-spin3d>
+  <div class="spin3d__sticky">
+    <p class="spin3d__kicker">{{ s.kicker }}</p>
+    <div class="spin3d__stage">
+      {%- if model -%}
+        {{ model | model_viewer_tag: image_size: '1400x', interaction-prompt: 'none', camera-orbit: '0deg 78deg 105%', interpolation-decay: '90', shadow-intensity: '1.2', exposure: '1.1', class: 'spin3d__model', alt: p.title }}
+      {%- else -%}
+        {{ p.featured_image | image_url: width: 1400 | image_tag: class: 'spin3d__img', alt: p.title, loading: 'lazy' }}
+      {%- endif -%}
+    </div>
+    <div class="spin3d__chapters">
+      {%- for block in section.blocks -%}
+        <div class="spin3d__chapter{% if forloop.first %} is-active{% endif %}" data-chapter data-orbit="{{ block.settings.orbit }}" {{ block.shopify_attributes }}>
+          <span class="spin3d__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+          <p class="spin3d__it">{{ block.settings.italian }}</p>
+          <h2 class="spin3d__title">{{ block.settings.title }}</h2>
+          <p class="spin3d__text">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+    <ol class="spin3d__rail" aria-hidden="true">
+      {%- for block in section.blocks -%}<li{% if forloop.first %} class="is-active"{% endif %}>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</li>{%- endfor -%}
+    </ol>
+    <span class="spin3d__progress" aria-hidden="true"><span></span></span>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "3D scroll film",
+  "class": "section-spin3d",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "color", "id": "glow", "label": "Glow colour", "default": "#e3b73a" },
+    { "type": "text", "id": "kicker", "label": "Small label", "default": "Every angle, considered" }
+  ],
+  "blocks": [
+    { "type": "chapter", "name": "Chapter", "settings": [
+      { "type": "text", "id": "italian", "label": "Italian label", "default": "Il pellame" },
+      { "type": "text", "id": "title", "label": "Title", "default": "Full-grain leather" },
+      { "type": "textarea", "id": "text", "label": "Text" },
+      { "type": "text", "id": "orbit", "label": "Camera angle (theta phi distance%)", "info": "e.g. 0 78 105 = front, 90 78 105 = side, 0 30 100 = from above.", "default": "0 78 105" }
+    ]}
+  ],
+  "presets": [{ "name": "3D scroll film" }]
+}
+{% endschema %}

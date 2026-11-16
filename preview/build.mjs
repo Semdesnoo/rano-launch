@@ -52,12 +52,7 @@ products.forEach((p) => p.collections.push(collections.all));
 
 const L = (title, url, links = []) => ({ title, url, links, active: false, child_active: false });
 const menus = {
-  'main-menu': { title: 'Shop', links: [
-    L('Shop All', '/collections/all', [
-      L('By category', '/collections/all', [L('All products', '/collections/all'), L('The Traveller', '/collections/rano-traveller'), L('Travel Pouch', '/collections/rano-travel-pouch'), L('Card Holder', '/collections/card-holder'), L('Full Travel Sets', '/products/bundle-product-7')]),
-      L('By colour', '/collections/all', [L('Giallo', '/products/giallo-traveller'), L('Rosa', '/products/rano-rosa-traveller'), L('Blue Mare', '/products/blue-mare-traveller')]),
-      L('Highlights', '/collections/all', [L('The Gift Edit', '/products/bundle-product-4'), L('Bestsellers', '/collections/all'), L('Gift sets', '/products/bundle-product-4')])]),
-    L('Bestsellers', '/collections/all'), L('About', '/pages/about-us'), L('Contact', '/pages/contact')] },
+  'main-menu': { title: 'Shop', links: [L('The Giallo Traveller', '/products/giallo-traveller'), L('Our story', '/pages/about-us'), L('Craftsmanship', '/pages/craftsmanship'), L('Contact', '/pages/contact')] },
   'footer-company': { title: 'Company', links: [L('About us', '/pages/about-us'), L('Reviews', '/#reviews'), L('Craftsmanship', '/pages/craftsmanship'), L('Partnerships & Ambassadors', '/pages/partnerships'), L('Become a reseller', '/pages/reseller'), L('Corporate Gifting', '/pages/corporate-gifting'), L('Instagram', 'https://www.instagram.com/ranoeurope/'), L('TikTok', 'https://www.tiktok.com/@ranoeurope')] },
   footer: { title: 'Customer service', links: [L('Help centre & FAQs', '/pages/contact'), L('Track my order', '/pages/track-order'), L('Shipping Policy', '/policies/shipping-policy'), L('Return & Refund Policy', '/policies/refund-policy'), L('Privacy Policy', '/policies/privacy-policy'), L('Terms of Service', '/policies/terms-of-service'), L('Contact', '/pages/contact-form')] },
   'footer-shop': { title: 'Rano', links: [L('Shop All', '/collections/all'), L('Bestsellers', '/collections/all?sort_by=best-selling'), L('The Traveller', '/collections/rano-traveller'), L('Travel Pouch', '/collections/rano-travel-pouch'), L('Card Holder', '/collections/card-holder'), L('Full Travel Sets', '/products/bundle-product-7'), L('The Gift Edit', '/products/bundle-product-4')] },
@@ -134,7 +129,7 @@ class SchemaTag extends Tag { constructor(t, r, l) { super(t, r, l); r.shift(); 
 engine.registerTag('schema', SchemaTag);
 engine.registerTag('form', class extends Tag {
   constructor(t, r, l, p) { super(t, r, l); this.tpls = []; this.args = t.args; const s = p.parseStream(r).on('tag:endform', () => s.stop()).on('template', (x) => this.tpls.push(x)).on('end', () => { throw new Error('form not closed'); }); s.start(); }
-  * render(ctx, emitter) { const cls = (this.args.match(/class:\s*'([^']*)'/) || [])[1] || ''; const data = this.args.includes('data-add-form') ? ' data-add-form' : ''; emitter.write(this.args.includes('localization') ? `<form method="get" class="${cls}">` : `<form method="post" action="/cart/add" class="${cls}"${data}>`); ctx.push({ form: { errors: null, posted_successfully: false } }); yield this.liquid.renderer.renderTemplates(this.tpls, ctx, emitter); ctx.pop(); emitter.write('</form>'); }
+  * render(ctx, emitter) { const cls = (this.args.match(/class:\s*'([^']*)'/) || [])[1] || ''; const data = this.args.includes('data-add-form') ? ' data-add-form' : ''; const fid = (this.args.match(/id:\s*'([^']*)'/) || [])[1]; const idA = fid ? ` id="${fid}"` : ''; emitter.write(this.args.includes('localization') ? `<form method="get" class="${cls}">` : `<form method="post" action="/cart/add" class="${cls}"${idA}${data}>`); ctx.push({ form: { errors: null, posted_successfully: false } }); yield this.liquid.renderer.renderTemplates(this.tpls, ctx, emitter); ctx.pop(); emitter.write('</form>'); }
 });
 engine.registerTag('paginate', class extends Tag {
   constructor(t, r, l, p) { super(t, r, l); this.tpls = []; const s = p.parseStream(r).on('tag:endpaginate', () => s.stop()).on('template', (x) => this.tpls.push(x)).on('end', () => { throw new Error('paginate not closed'); }); s.start(); }
