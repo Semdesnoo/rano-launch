@@ -1250,28 +1250,5 @@ select{border-radius:8px;cursor:pointer}
   .story-film__step,.story-film__step+.story-film__step{padding:18px 0;border-left:0;border-bottom:1px solid rgba(255,255,255,.16)}
 }
 
-/* 3D product on white */
-.spin3d{background:#fff;color:var(--ink);overflow:hidden}
-.spin3d__head{text-align:center}
-.spin3d__kicker{font-family:var(--serif);font-style:italic;font-size:18px;color:color-mix(in srgb,var(--ink) 55%,transparent)}
-.spin3d__heading{font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.4vw,68px);line-height:1;letter-spacing:-.025em;margin-top:10px}
-.spin3d__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr) minmax(0,1fr);align-items:center;gap:clamp(12px,2vw,32px);max-width:1320px;margin:clamp(10px,2vw,28px) auto 0}
-.spin3d__stage{position:relative;height:clamp(340px,58svh,620px)}
-.spin3d__plinth{position:absolute;left:50%;top:50%;width:min(82%,520px);aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--glow) 16%,#fff) 0%,#f6f6f4 55%,#fff 72%)}
-.spin3d__plinth::after{content:"";position:absolute;inset:6%;border-radius:50%;border:1px solid var(--line)}
-.spin3d__model,.spin3d__img{position:relative;width:100%;height:100%;--poster-color:transparent;background:transparent;object-fit:contain}
-.spin3d__badge{position:absolute;right:8%;top:10%;width:58px;height:58px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:#fff;font-size:11px;letter-spacing:.12em}
-.spin3d__specs{list-style:none;padding:0;display:grid;gap:clamp(28px,4vw,56px)}
-.spin3d__specs li{display:grid;gap:6px;padding-top:14px;border-top:1px solid var(--ink)}
-.spin3d__specs--right{text-align:right}
-.spin3d__specs span{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:color-mix(in srgb,var(--ink) 55%,transparent)}
-.spin3d__specs b{font-family:var(--serif);font-weight:400;font-size:clamp(19px,1.6vw,24px)}
-.spin3d__foot{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:clamp(18px,2.5vw,32px)}
-.spin3d__price{font-family:var(--serif);font-size:22px}
 @media (max-width:989px){
-  .spin3d__grid{grid-template-columns:1fr 1fr}
-  .spin3d__stage{grid-column:1/-1;grid-row:1;height:44svh}
-  .spin3d__specs{gap:18px}
-  .spin3d__specs b{font-size:18px}
-  .spin3d__badge{width:46px;height:46px;font-size:10px;right:4%;top:4%}
 }

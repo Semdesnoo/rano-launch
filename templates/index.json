@@ -31,13 +31,6 @@
         "heading": "The Giallo Traveller"
       }
     },
-    "spin": {
-      "type": "launch-spin",
-      "settings": {
-        "product": "giallo-traveller",
-        "glow": "#e3b73a"
-      }
-    },
     "looks": {
       "type": "shop-the-look",
       "blocks": {
@@ -278,9 +271,8 @@
   "order": [
     "hero",
     "showcase",
-    "spin",
-    "looks",
     "story",
+    "looks",
     "details",
     "reviews",
     "ugc"
