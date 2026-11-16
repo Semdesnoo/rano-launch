@@ -1252,3 +1252,15 @@ select{border-radius:8px;cursor:pointer}
 
 @media (max-width:989px){
 }
+
+/* Mobile menu: maison typography */
+.m-nav__link{font-family:var(--serif);font-weight:400;font-size:30px;letter-spacing:-.015em;line-height:1.1;padding:18px 0}
+.m-nav__link .icon{width:16px;height:16px;opacity:.55}
+.m-nav__group li a,.m-nav__panel li a{font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding:10px 0;color:color-mix(in srgb,var(--ink) 75%,transparent)}
+.m-nav__all{font-family:var(--serif);font-style:italic;font-weight:400;font-size:17px;letter-spacing:0;text-transform:none}
+.m-nav__head{font-family:var(--serif);font-style:italic;font-weight:400;font-size:15px;letter-spacing:0;text-transform:none;margin:16px 0 2px}
+.m-nav__feature span{font-family:var(--serif);font-weight:400;font-size:24px}
+.drawer__foot a{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase}
+.drawer__foot a .icon{width:16px;height:16px}
+.m-nav__feature::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(17,17,17,.55),transparent 45%)}
+.m-nav__feature span{z-index:1}
