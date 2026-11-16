@@ -515,13 +515,16 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   }
 }
 
-// Launch hero: mouse parallax on the product + sticky buy bar when the hero leaves the screen
-document.querySelectorAll('[data-launch]').forEach((hero) => {
-  const stage = hero.querySelector('[data-launch-stage]'), bar = document.querySelector('[data-launch-bar]');
-  if (matchMedia('(hover:hover) and (prefers-reduced-motion:no-preference)').matches) hero.addEventListener('pointermove', (e) => {
-    const r = hero.getBoundingClientRect(); stage.style.setProperty('--mx', `${((e.clientX - r.left) / r.width - .5) * 24}px`); stage.style.setProperty('--my', `${((e.clientY - r.top) / r.height - .5) * 16}px`);
-  });
-  if (bar) new IntersectionObserver(([en]) => { const on = !en.isIntersecting && en.boundingClientRect.top < 0; bar.classList.toggle('is-visible', on); bar.setAttribute('aria-hidden', !on); bar.querySelector('button').tabIndex = on ? 0 : -1; }).observe(hero.querySelector('.launch__form') || hero);
+// Product showcase: thumbnails switch the photo; sticky buy bar once the buy button scrolls past
+document.querySelectorAll('[data-showcase]').forEach((sec) => {
+  const imgs = sec.querySelectorAll('[data-showcase-img]'), thumbs = sec.querySelectorAll('[data-showcase-thumb]');
+  thumbs.forEach((t) => t.addEventListener('click', () => {
+    const i = t.dataset.showcaseThumb;
+    imgs.forEach((im) => im.classList.toggle('is-active', im.dataset.showcaseImg === i));
+    thumbs.forEach((x) => { x.classList.toggle('is-active', x === t); x.setAttribute('aria-selected', x === t); });
+  }));
+  const bar = document.querySelector('[data-launch-bar]');
+  if (bar) new IntersectionObserver(([en]) => { const on = !en.isIntersecting && en.boundingClientRect.top < 0; bar.classList.toggle('is-visible', on); bar.setAttribute('aria-hidden', !on); bar.querySelector('button').tabIndex = on ? 0 : -1; }).observe(sec);
 });
 // 3D scroll film: scroll position drives the camera between chapter angles
 const lerp = (a, b, t) => a + (b - a) * t;

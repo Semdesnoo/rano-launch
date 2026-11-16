@@ -1,9 +1,10 @@
-# Rano Europe - Shopify theme
+# Rano Launch - single-product Shopify theme
 
 OS 2.0 theme for [ranoeurope.com](https://ranoeurope.com), layout modelled on doreandrose.com.
 
-**Live preview:** https://semdesnoo.github.io/rano-europe-theme/
-**Shopify zip (always latest):** [Releases > latest > rano-europe-theme.zip](https://github.com/Semdesnoo/rano-europe-theme/releases/tag/latest)
+**Live preview:** https://semdesnoo.github.io/rano-launch/
+
+**Shopify zip:** https://github.com/Semdesnoo/rano-launch/releases/tag/latest (`rano-launch.zip`)
 
 ## Workflow
 1. Edit files on GitHub (pencil icon) or locally, commit to `main`.

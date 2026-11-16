@@ -1,0 +1,84 @@
+{%- comment -%}
+  Homepage product showcase for a single-product store: editorial gallery + buy box,
+  and a sticky buy bar once the buy button scrolls out of view.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign p = s.product | default: collections.all.products.first
+  assign current = p.selected_or_first_available_variant
+-%}
+<section class="section showcase" id="product" data-showcase>
+  <div class="container showcase__grid">
+    <div class="showcase__gallery reveal">
+      <div class="showcase__stage">
+        {%- for img in p.images -%}
+          {%- liquid
+            assign cls = 'showcase__img'
+            if forloop.first
+              assign cls = 'showcase__img is-active'
+            endif
+          -%}
+          {{ img | image_url: width: 1600 | image_tag: widths: '600, 900, 1200, 1600', sizes: '(min-width: 990px) 55vw, 100vw', class: cls, alt: p.title, loading: 'lazy', data-showcase-img: forloop.index0 }}
+        {%- endfor -%}
+        <span class="showcase__tag">{{ s.tag }}</span>
+      </div>
+      {%- if p.images.size > 1 -%}
+        <div class="showcase__thumbs" role="tablist" aria-label="{{ p.title }} photos">
+          {%- for img in p.images -%}
+            <button type="button" class="showcase__thumb{% if forloop.first %} is-active{% endif %}" data-showcase-thumb="{{ forloop.index0 }}" aria-label="Photo {{ forloop.index }}" aria-selected="{{ forloop.first }}" role="tab">
+              {{ img | image_url: width: 200 | image_tag: alt: '', loading: 'lazy' }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="showcase__info reveal">
+      <p class="showcase__eyebrow">{{ s.eyebrow }}</p>
+      <h2 class="showcase__title">{{ s.heading | default: p.title }}</h2>
+      <p class="showcase__price">{% render 'price', price: current.price, compare: current.compare_at_price %}</p>
+      <div class="showcase__text">{{ p.description | replace: '</p>', ' </p>' | strip_html | truncatewords: 34 }}</div>
+      <ul class="showcase__specs">
+        {%- for i in (1..4) -%}
+          {%- assign k = 'spec_' | append: i -%}
+          {%- if s[k] != blank -%}<li>{{ s[k] }}</li>{%- endif -%}
+        {%- endfor -%}
+      </ul>
+      {%- form 'product', p, class: 'showcase__form', id: 'showcase-form', data-add-form: '' -%}
+        <input type="hidden" name="id" value="{{ current.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="btn btn--dark btn--lg btn--atc showcase__btn"{% unless current.available %} disabled{% endunless %}>
+          {%- render 'icon', name: 'bag' -%}
+          <span>{%- if current.available -%}{{ 'products.add_to_cart' | t }} · {{ current.price | money }}{%- else -%}{{ 'products.sold_out' | t }}{%- endif -%}</span>
+        </button>
+      {%- endform -%}
+      <a href="{{ p.url }}" class="showcase__more">Discover every detail</a>
+      <p class="showcase__trust">{{ s.trust }}</p>
+    </div>
+  </div>
+</section>
+
+<div class="launch-bar" data-launch-bar aria-hidden="true">
+  <span class="launch-bar__img">{{ p.featured_image | image_url: width: 120 | image_tag: alt: '', loading: 'lazy' }}</span>
+  <span class="launch-bar__name">{{ s.heading | default: p.title }}<small>{{ current.price | money }}</small></span>
+  <button type="submit" form="showcase-form" class="btn btn--dark launch-bar__btn" tabindex="-1"{% unless current.available %} disabled{% endunless %}>{{ 'products.add_to_cart' | t }}</button>
+</div>
+
+{% schema %}
+{
+  "name": "Product showcase",
+  "class": "section-showcase",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "text", "id": "eyebrow", "label": "Small label", "default": "The new Traveller" },
+    { "type": "text", "id": "heading", "label": "Title (empty = product title)" },
+    { "type": "text", "id": "tag", "label": "Label on photo", "default": "Edizione limitata" },
+    { "type": "text", "id": "spec_1", "label": "Detail 1", "default": "Full-grain Italian leather" },
+    { "type": "text", "id": "spec_2", "label": "Detail 2", "default": "Detachable, adjustable strap" },
+    { "type": "text", "id": "spec_3", "label": "Detail 3", "default": "Cabin-friendly size" },
+    { "type": "text", "id": "spec_4", "label": "Detail 4", "default": "Silver-tone hardware" },
+    { "type": "text", "id": "trust", "label": "Small print under button", "default": "Complimentary shipping · 14-day returns · Arrives in its dust bag" }
+  ],
+  "presets": [{ "name": "Product showcase" }]
+}
+{% endschema %}

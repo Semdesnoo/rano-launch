@@ -1,14 +1,94 @@
 {
   "sections": {
-    "launch": {
-      "type": "launch-hero",
+    "hero": {
+      "type": "hero-slideshow",
+      "blocks": {
+        "film": {
+          "type": "slide",
+          "settings": {
+            "layout": "single",
+            "video_asset": "rano-film.mp4",
+            "fallback": "rano-film-poster.jpg",
+            "heading": "Designed in Italy. Carried everywhere.",
+            "text": "Introducing the Giallo Traveller. Full-grain leather, made in small numbers.",
+            "button_label": "Discover the Traveller",
+            "button_link": "shopify://products/giallo-traveller"
+          }
+        }
+      },
+      "block_order": [
+        "film"
+      ],
+      "settings": {
+        "height": "large",
+        "interval": 8
+      }
+    },
+    "showcase": {
+      "type": "product-showcase",
       "settings": {
         "product": "giallo-traveller",
-        "word": "GIALLO",
-        "glow": "#e3b73a",
-        "eyebrow": "The new Traveller",
-        "heading": "The Giallo Traveller",
-        "edition": "Edizione limitata. Made in small numbers, never restocked."
+        "heading": "The Giallo Traveller"
+      }
+    },
+    "looks": {
+      "type": "shop-the-look",
+      "blocks": {
+        "l1": {
+          "type": "look",
+          "settings": {
+            "fallback": "model-giallo-2.jpg",
+            "product": "giallo-traveller"
+          }
+        },
+        "l2": {
+          "type": "look",
+          "settings": {
+            "video_asset": "look-pouch.mp4",
+            "fallback": "look-pouch.jpg",
+            "product": "rosa-travel-pouch"
+          }
+        },
+        "l3": {
+          "type": "look",
+          "settings": {
+            "fallback": "model-rosa.jpg",
+            "product": "rano-rosa-traveller"
+          }
+        },
+        "l4": {
+          "type": "look",
+          "settings": {
+            "video_asset": "look-canal.mp4",
+            "fallback": "look-canal.jpg",
+            "product": "giallo-traveller"
+          }
+        },
+        "l5": {
+          "type": "look",
+          "settings": {
+            "fallback": "model-blue.jpg",
+            "product": "blue-mare-traveller"
+          }
+        },
+        "l6": {
+          "type": "look",
+          "settings": {
+            "fallback": "life-giallo.jpg",
+            "product": "giallo-travel-pouch"
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5",
+        "l6"
+      ],
+      "settings": {
+        "heading": "Seen on the move"
       }
     },
     "spin": {
@@ -63,97 +143,42 @@
         "c3"
       ]
     },
-    "craft": {
-      "type": "craft-steps",
-      "settings": {
-        "anchor": "atelier",
-        "eyebrow": "Il mestiere",
-        "heading": "From hide to heirloom"
-      },
+    "details": {
+      "type": "craft-details",
       "blocks": {
-        "s0": {
-          "type": "step",
+        "d1": {
+          "type": "item",
           "settings": {
-            "italian": "La scelta",
-            "title": "Selecting the leather",
-            "text": "Every hide is chosen by hand for its grain, weight and the way it softens. Only full-grain leather makes the cut."
+            "fallback": "detail-1.jpg",
+            "title": "Genuine leather",
+            "text": "Full-grain leather, carefully selected for its natural feel. It softens and ages with character."
           }
         },
-        "s1": {
-          "type": "step",
+        "d2": {
+          "type": "item",
           "settings": {
-            "italian": "Il taglio",
-            "title": "Cut by hand",
-            "text": "Patterns are laid out to follow the natural grain, then cut with a blade, piece by piece, so every panel lines up."
+            "fallback": "detail-2.jpg",
+            "title": "Designed in Italy",
+            "text": "Shaped in Casarano, finished with intention."
           }
         },
-        "s2": {
-          "type": "step",
+        "d3": {
+          "type": "item",
           "settings": {
-            "italian": "La cucitura",
-            "title": "Stitched to last",
-            "text": "Dense, even stitching and reinforced handle joints. A travel bag has to carry more than looks."
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "italian": "La rifinitura",
-            "title": "Finished with intention",
-            "text": "Edges are smoothed and sealed, hardware checked, the Rano mark pressed in. Then it waits for its first journey."
+            "fallback": "detail-3.jpg",
+            "title": "Cabin ready",
+            "text": "Sized for weekends, overnights and carry-on cabins."
           }
         }
       },
       "block_order": [
-        "s0",
-        "s1",
-        "s2",
-        "s3"
-      ]
-    },
-    "facts": {
-      "type": "facts",
-      "blocks": {
-        "f0": {
-          "type": "fact",
-          "settings": {
-            "number": 100,
-            "suffix": "%",
-            "label": "Full-grain leather"
-          }
-        },
-        "f1": {
-          "type": "fact",
-          "settings": {
-            "number": 4,
-            "suffix": "",
-            "label": "Hands on every piece"
-          }
-        },
-        "f2": {
-          "type": "fact",
-          "settings": {
-            "number": 14,
-            "suffix": "",
-            "label": "Days to make one Traveller"
-          }
-        },
-        "f3": {
-          "type": "fact",
-          "settings": {
-            "number": 1,
-            "suffix": "",
-            "label": "Small town in Puglia"
-          }
-        }
-      },
-      "block_order": [
-        "f0",
-        "f1",
-        "f2",
-        "f3"
+        "d1",
+        "d2",
+        "d3"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "Why Rano"
+      }
     },
     "reviews": {
       "type": "trustpilot-reviews",
@@ -246,10 +271,11 @@
     }
   },
   "order": [
-    "launch",
+    "hero",
+    "showcase",
+    "looks",
     "spin",
-    "craft",
-    "facts",
+    "details",
     "reviews",
     "ugc"
   ]
