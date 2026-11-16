@@ -31,6 +31,13 @@
         "heading": "The Giallo Traveller"
       }
     },
+    "spin": {
+      "type": "launch-spin",
+      "settings": {
+        "product": "giallo-traveller",
+        "glow": "#e3b73a"
+      }
+    },
     "looks": {
       "type": "shop-the-look",
       "blocks": {
@@ -91,56 +98,52 @@
         "heading": "Seen on the move"
       }
     },
-    "spin": {
-      "type": "launch-spin",
+    "story": {
+      "type": "craft-steps",
       "settings": {
-        "product": "giallo-traveller",
-        "glow": "#e3b73a",
-        "kicker": "Every angle, considered"
+        "anchor": "story",
+        "eyebrow": "La nostra storia",
+        "heading": "The story behind Rano"
       },
       "blocks": {
-        "c0": {
-          "type": "chapter",
+        "s0": {
+          "type": "step",
           "settings": {
-            "italian": "Il pellame",
-            "title": "Full-grain leather",
-            "text": "Chosen hide by hide for its grain and weight. It softens with every trip and takes on your story.",
-            "orbit": "-18 80 105"
+            "italian": "La scelta",
+            "title": "Selecting the leather",
+            "text": "Every hide is chosen by hand for its grain, weight and the way it softens. Only full-grain leather makes the cut."
           }
         },
-        "c1": {
-          "type": "chapter",
+        "s1": {
+          "type": "step",
           "settings": {
-            "italian": "La forma",
-            "title": "A shape that holds",
-            "text": "Structured enough to stand on its own, soft enough to slide into an overhead cabin.",
-            "orbit": "22 64 96"
+            "italian": "Il taglio",
+            "title": "Cut by hand",
+            "text": "Patterns are laid out to follow the natural grain, then cut with a blade, piece by piece, so every panel lines up."
           }
         },
-        "c2": {
-          "type": "chapter",
+        "s2": {
+          "type": "step",
           "settings": {
-            "italian": "I dettagli",
-            "title": "Hardware you can feel",
-            "text": "Silver-tone buckles, a smooth two-way zip and a pressed Rano tag. Quiet details, built to last.",
-            "orbit": "180 74 102"
+            "italian": "La cucitura",
+            "title": "Stitched to last",
+            "text": "Dense, even stitching and reinforced handle joints. A travel bag has to carry more than looks."
           }
         },
-        "c3": {
-          "type": "chapter",
+        "s3": {
+          "type": "step",
           "settings": {
-            "italian": "Il viaggio",
-            "title": "Made for the journey",
-            "text": "A detachable, adjustable strap and handles reinforced at every joint. From a weekend in Puglia to a late flight home.",
-            "orbit": "0 88 114"
+            "italian": "La rifinitura",
+            "title": "Finished with intention",
+            "text": "Edges are smoothed and sealed, hardware checked, the Rano mark pressed in. Then it waits for its first journey."
           }
         }
       },
       "block_order": [
-        "c0",
-        "c1",
-        "c2",
-        "c3"
+        "s0",
+        "s1",
+        "s2",
+        "s3"
       ]
     },
     "details": {
@@ -273,8 +276,9 @@
   "order": [
     "hero",
     "showcase",
-    "looks",
     "spin",
+    "looks",
+    "story",
     "details",
     "reviews",
     "ugc"

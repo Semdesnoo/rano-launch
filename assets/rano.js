@@ -526,22 +526,4 @@ document.querySelectorAll('[data-showcase]').forEach((sec) => {
   const bar = document.querySelector('[data-launch-bar]');
   if (bar) new IntersectionObserver(([en]) => { const on = !en.isIntersecting && en.boundingClientRect.top < 0; bar.classList.toggle('is-visible', on); bar.setAttribute('aria-hidden', !on); bar.querySelector('button').tabIndex = on ? 0 : -1; }).observe(sec);
 });
-// 3D scroll film: scroll position drives the camera between chapter angles
-const lerp = (a, b, t) => a + (b - a) * t;
-document.querySelectorAll('[data-spin3d]').forEach((sec) => {
-  const mv = sec.querySelector('model-viewer'), chs = [...sec.querySelectorAll('[data-chapter]')], rail = [...sec.querySelectorAll('.spin3d__rail li')];
-  const orbits = chs.map((c) => c.dataset.orbit.split(/\s+/).map(Number));
-  let raf = 0, last = -1;
-  const run = () => {
-    raf = 0;
-    const r = sec.getBoundingClientRect(), total = sec.offsetHeight - innerHeight;
-    const p = Math.min(1, Math.max(0, -r.top / total)), f = p * (chs.length - 1), i = Math.min(chs.length - 2, Math.floor(f)), t = f - i;
-    const ease = t * t * (3 - 2 * t), a = orbits[i], b = orbits[i + 1] || a;
-    if (mv) mv.cameraOrbit = `${lerp(a[0], b[0], ease)}deg ${lerp(a[1], b[1], ease)}deg ${lerp(a[2], b[2], ease)}%`;
-    sec.style.setProperty('--p', p.toFixed(4));
-    const act = Math.round(f);
-    if (act !== last) { last = act; chs.forEach((c, k) => c.classList.toggle('is-active', k === act)); rail.forEach((l, k) => l.classList.toggle('is-active', k === act)); }
-  };
-  addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(run); }, { passive: true }); addEventListener('resize', run); run();
-});
-console.assert(lerp(0, 90, .5) === 45, 'lerp');
+
